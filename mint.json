@@ -53,9 +53,11 @@
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Guides",
       "pages": [
-        "html_data_tags"
+        "html_data_tags",
+        "retain_certificates",
+        "validate_certificates"
       ]
     },
     {
