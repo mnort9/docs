@@ -246,7 +246,7 @@
       "apiKeyAuth": {
         "type": "apiKey",
         "in": "header"
-        "scheme": "X-API-KEY"
+        "name": "X-API-KEY"
       }
     }
   }
