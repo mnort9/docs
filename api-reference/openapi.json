@@ -10,12 +10,12 @@
   },
   "servers": [
     {
-      "url": "https://api.formcertify.com"
+      "url": "https://cert.formcertify.com"
     }
   ],
   "security": [
     {
-      "api_key": []
+      "ApiKeyAuth": []
     }
   ],
   "paths": {
