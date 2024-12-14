@@ -42,11 +42,6 @@
       "icon": "slack",
       "url": "https://mintlify.com/community"
     },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
   ],
   "navigation": [
     {
@@ -61,7 +56,6 @@
       "group": "Essentials",
       "pages": [
         "html_data_tags",
-        "essentials/markdown",
       ]
     },
     {
