@@ -53,11 +53,18 @@
       ]
     },
     {
-      "group": "Guides",
+      "group": "Implement",
       "pages": [
         "html_data_tags",
         "retain_certificates",
         "validate_certificates"
+      ]
+    },
+    {
+      "group": "Guides",
+      "pages": [
+        "guides/if_you_generate_leads",
+        "guides/if_you_buy_leads"
       ]
     },
     {
