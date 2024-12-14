@@ -1,8 +1,24 @@
 ---
 title: "Store Certificate URL"
-description: "Save the Certificate URL for your records and to send to partners"
+description: "Save the Certificate URL for your records and share it with partners to provide proof of consent."
 ---
 
-When a form is submitted, the Consent Certificate URL will be passed in the form submission request in the `FormcertifyUrl` parameter.&#x20;
+When a form is submitted, the **Consent Certificate URL** is automatically passed in the form submission request under the `FormcertifyUrl` parameter. This URL acts as a unique, tamper-proof link to the certificate that stores all evidence of consent.
 
-The Certificate URL is&#x20;
+## Why Save the Certificate URL?
+
+* **Proof of Compliance**: The Certificate URL provides a verifiable record of consent, meeting legal and regulatory requirements.
+
+* **Easy Sharing**: Share the URL with partners, auditors, or third parties to validate consent without exposing sensitive data.
+
+* **Secure Access**: The URL is independently managed and stored, ensuring its integrity and authenticity.
+
+## How to Use the Certificate URL
+
+1. **Capture the URL**: Retrieve the `FormcertifyUrl` parameter from the form submission payload.
+
+2. **Store it Securely**: Save the URL in your database alongside the form submission data for future reference.
+
+3. **Provide on Request**: Share the URL with third parties when they need to validate the consent.
+
+By storing the Certificate URL, you ensure that all parties have access to an independent source of truth for consent verification.
