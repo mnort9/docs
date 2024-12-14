@@ -1,0 +1,137 @@
+---
+title: 'Form Tags Reference'
+description: 'Complete reference for Formcertify HTML data attributes'
+---
+
+## Overview
+
+Formcertify uses HTML data attributes to identify and process form elements. These attributes help us track user consent and generate legally-binding certificates.
+
+## Required Tags
+
+All form elements must use the `data-fc-type` attribute with one of the following values:
+
+<ParamField path="consenter-name" type="string">
+  Input field for collecting the user's full name
+  ```html
+  <input type="text" data-fc-type="consenter-name" />
+  ```
+</ParamField>
+
+<ParamField path="consenter-phone" type="string">
+  Input field for collecting the user's phone number
+  ```html
+  <input type="tel" data-fc-type="consenter-phone" />
+  ```
+</ParamField>
+
+<ParamField path="consenter-email" type="string">
+  Input field for collecting the user's email address
+  ```html
+  <input type="email" data-fc-type="consenter-email" />
+  ```
+</ParamField>
+
+<ParamField path="consent-language" type="string">
+  Container element displaying the consent language shown to the user
+  ```html
+  <div data-fc-type="consent-language">
+    By submitting this form, I agree to receive communications from...
+  </div>
+  ```
+</ParamField>
+
+<ParamField path="consent-entity-name" type="string">
+  Element containing the name of the entity receiving consent
+  ```html
+  <div data-fc-type="consent-entity-name">
+    Acme Corporation
+  </div>
+  ```
+</ParamField>
+
+<ParamField path="submit" type="string">
+  The form's submit button
+  ```html
+  <button type="submit" data-fc-type="submit">Submit</button>
+  ```
+</ParamField>
+
+## Optional Tags
+
+<ParamField path="form" type="string">
+  Can be added to the form element itself for explicit form identification
+  ```html
+  <form data-fc-type="form">
+    <!-- Form fields here -->
+  </form>
+  ```
+</ParamField>
+
+## Complete Example
+
+Here's a complete example showing all required tags in context:
+
+```html
+<form data-fc-type="form">
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <input 
+      type="text" 
+      id="name"
+      data-fc-type="consenter-name" 
+      required 
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input 
+      type="tel" 
+      id="phone"
+      data-fc-type="consenter-phone" 
+      required 
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input 
+      type="email" 
+      id="email"
+      data-fc-type="consenter-email" 
+      required 
+    />
+  </div>
+
+  <div class="consent-box">
+    <div data-fc-type="consent-entity-name">
+      Acme Corporation
+    </div>
+    
+    <div data-fc-type="consent-language">
+      By submitting this form, I agree to receive marketing communications from 
+      Acme Corporation. I understand that I can unsubscribe at any time. Message 
+      and data rates may apply.
+    </div>
+  </div>
+
+  <button type="submit" data-fc-type="submit">
+    Submit Form
+  </button>
+</form>
+```
+
+## What Gets Recorded
+
+When a form with these tags is submitted, Formcertify records:
+
+- All tagged form field values
+- The exact consent language shown
+- The entity receiving consent
+- Timestamp of submission
+- Browser and device information
+- User interaction metrics
+- Session replay (if enabled)
+
+This data is used to generate a legally-binding certificate of consent that can be accessed through your Formcertify dashboard. 
