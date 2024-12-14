@@ -19,17 +19,17 @@
     }
   ],
   "paths": {
-    "/certificates": {
+    "/:certificate_id": {
       "get": {
         "description": "Returns all plants from the system that the user has access to",
         "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
+           {
+            "name": "certificate_id",
+            "in": "path",
+            "description": "ID of certificate",
+            "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
