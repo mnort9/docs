@@ -74,7 +74,7 @@
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "Endpoint",
       "pages": [
         "api-reference/endpoint/create"
       ]
