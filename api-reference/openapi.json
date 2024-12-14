@@ -101,10 +101,14 @@
             "description": "Vault certificate for 5 years",
             "type": "object",
             "properties": {
-              "reference": {
-                "description": "Identifier in your system",
+              "identifier": {
+                "description": "Identifier used to associate a certificate to a contact/lead in your system. Good examples are a contact id or CRM URL. This is displayed in the certificate.",
                 "type": "string"
-              }
+              },
+              "provider": {
+                "description": "Internal reference of what company provided the lead. This will not show in the certificate",
+                "type": "string"
+              },
             }
           },
           "name": {
