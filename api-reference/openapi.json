@@ -135,7 +135,7 @@
       "NewCertificate": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/Plant"
+            "$ref": "#/components/schemas/Certificate"
           },
           {
             "required": [
@@ -151,6 +151,32 @@
             }
           }
         ]
+      },
+      "Certificate": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "vault": {
+            "description": "Vault certificate for 5 years",
+            "type": "object",
+            "properties": {
+              "reference": {
+                "description": "Identifier in your system",
+                "type": "string"
+              }
+            }
+          },
+          "name": {
+            "description": "The name of the plant",
+            "type": "string"
+          },
+          "tag": {
+            "description": "Tag to specify the type",
+            "type": "string"
+          }
+        }
       },
       "Plant": {
         "required": [
