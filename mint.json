@@ -54,7 +54,8 @@
       "pages": [
         "introduction",
         "install_snippet",
-        "store_certificate_url"
+        "store_certificate_url",
+        "html_data_tags"
       ]
     },
     {
