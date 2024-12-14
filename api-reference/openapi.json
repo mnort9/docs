@@ -34,7 +34,7 @@
           }
         ],
         "requestBody": {
-          "description": "Plant to add to the store",
+          "description": "Certificate data",
           "content": {
             "application/json": {
               "schema": {
@@ -46,7 +46,7 @@
         },
         "responses": {
           "200": {
-            "description": "plant response",
+            "description": "certificate response",
             "content": {
               "application/json": {
                 "schema": {
@@ -94,6 +94,16 @@
               },
               "provider": {
                 "description": "Internal reference of what company provided the lead. This will not show in the certificate",
+                "type": "string"
+              }
+            }
+          },
+          "validate": {
+            "description": "Validate your company received one-to-one consent",
+            "type": "object",
+            "properties": {
+              "company_name": {
+                "description": "Company name to validate. Case insensitive.",
                 "type": "string"
               }
             }
