@@ -15,11 +15,11 @@
   ],
   "security": [
     {
-      "bearerAuth": []
+      "api_key": []
     }
   ],
   "paths": {
-    "/:certificate_id": {
+    "/{certificate_id}": {
       "get": {
         "description": "Returns all plants from the system that the user has access to",
         "parameters": [
@@ -61,6 +61,17 @@
       },
       "post": {
         "description": "Creates a new plant in the store",
+         "parameters": [
+           {
+            "name": "certificate_id",
+            "in": "path",
+            "description": "ID of certificate",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "description": "Plant to add to the store",
           "content": {
