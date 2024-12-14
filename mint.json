@@ -54,19 +54,14 @@
       "pages": [
         "introduction",
         "install_snippet",
-        "store_certificate_url",
-        "html_data_tags"
+        "store_certificate_url"
       ]
     },
     {
       "group": "Essentials",
       "pages": [
+        "html_data_tags",
         "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
       ]
     },
     {
