@@ -74,10 +74,10 @@
       ]
     },
     {
-      "group": "Endpoint",
+      "group": "Certificates",
       "pages": [
-        "api-reference/endpoint/vault",
-        "api-reference/endpoint/validate"
+        "api-reference/certificate/vault",
+        "api-reference/certificate/validate"
       ]
     }
   ],
