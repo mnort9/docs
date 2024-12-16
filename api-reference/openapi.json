@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
+    "title": "Certificate API",
+    "description": "API for creating vault certificates and validating company consent",
     "license": {
       "name": "MIT"
     },
@@ -19,11 +19,11 @@
     }
   ],
   "paths": {
-    "/{certificate_id}": {
+    "/{certificate_id}/vault": {
       "post": {
-        "description": "Creates a new plant in the store",
-         "parameters": [
-           {
+        "description": "Creates a vault certificate for storing consent",
+        "parameters": [
+          {
             "name": "certificate_id",
             "in": "path",
             "description": "ID of certificate",
@@ -34,11 +34,60 @@
           }
         ],
         "requestBody": {
-          "description": "Certificate data",
+          "description": "Vault certificate data",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewCertificate"
+                "$ref": "#/components/schemas/VaultRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Vault certificate created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VaultResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{certificate_id}/validate": {
+      "post": {
+        "description": "Validates company consent for a certificate",
+        "parameters": [
+          {
+            "name": "certificate_id",
+            "in": "path",
+            "description": "ID of certificate",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Validation data",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidateRequest"
               }
             }
           },
@@ -46,17 +95,17 @@
         },
         "responses": {
           "200": {
-            "description": "certificate response",
+            "description": "Validation successful",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plant"
+                  "$ref": "#/components/schemas/ValidateResponse"
                 }
               }
             }
           },
           "400": {
-            "description": "unexpected error",
+            "description": "Invalid request",
             "content": {
               "application/json": {
                 "schema": {
@@ -71,42 +120,67 @@
   },
   "components": {
     "schemas": {
-      "NewCertificate": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Certificate"
+      "VaultRequest": {
+        "type": "object",
+        "required": ["identifier"],
+        "properties": {
+          "identifier": {
+            "type": "string",
+            "description": "Identifier used to associate a certificate to a contact/lead in your system"
+          },
+          "provider": {
+            "type": "string",
+            "description": "Internal reference of what company provided the lead"
           }
-        ]
+        }
       },
-      "Certificate": {
-        "required": [
-          "name"
-        ],
+      "VaultResponse": {
         "type": "object",
         "properties": {
-          "vault": {
-            "description": "Vault certificate for 5 years",
-            "type": "object",
-            "properties": {
-              "identifier": {
-                "description": "Identifier used to associate a certificate to a contact/lead in your system. Good examples are a contact id or CRM URL. This is displayed in the certificate.",
-                "type": "string"
-              },
-              "provider": {
-                "description": "Internal reference of what company provided the lead. This will not show in the certificate",
-                "type": "string"
-              }
-            }
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the vault certificate"
           },
-          "validate": {
-            "description": "Validate your company received one-to-one consent",
-            "type": "object",
-            "properties": {
-              "company_name": {
-                "description": "Company name to validate. Case insensitive.",
-                "type": "string"
-              }
-            }
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the vault certificate was created"
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The identifier provided in the request"
+          },
+          "provider": {
+            "type": "string",
+            "description": "The provider specified in the request"
+          }
+        }
+      },
+      "ValidateRequest": {
+        "type": "object",
+        "required": ["company_name"],
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": "Company name to validate. Case insensitive."
+          }
+        }
+      },
+      "ValidateResponse": {
+        "type": "object",
+        "properties": {
+          "valid": {
+            "type": "boolean",
+            "description": "Whether the company consent is valid"
+          },
+          "company_name": {
+            "type": "string",
+            "description": "The validated company name"
+          },
+          "validated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of validation"
           }
         }
       },
