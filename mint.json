@@ -63,8 +63,8 @@
     {
       "group": "Guides",
       "pages": [
-        "guides/if_you_generate_leads",
-        "guides/if_you_buy_leads"
+        "documentation/guides/if_you_generate_leads",
+        "documentation/guides/if_you_buy_leads"
       ]
     },
     {
