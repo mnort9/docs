@@ -32,10 +32,10 @@ All form elements must use the `data-fc-type` attribute with one of the followin
   ```
 </ParamField>
 
-<ParamField path="consent-language" type="string">
-  Container element displaying the consent language shown to the user
+<ParamField path="consent-disclosure" type="string">
+  Container element displaying the consent disclosure langauge shown to the user
   ```html
-  <div data-fc-type="consent-language">
+  <div data-fc-type="consent-disclosure">
     By submitting this form, I agree to receive communications from...
   </div>
   ```
@@ -109,7 +109,7 @@ Here's a complete example showing all required tags in context:
       Acme Corporation
     </div>
     
-    <div data-fc-type="consent-language">
+    <div data-fc-type="consent-disclosure">
       By submitting this form, I agree to receive marketing communications from 
       Acme Corporation. I understand that I can unsubscribe at any time. Message 
       and data rates may apply.
@@ -121,17 +121,3 @@ Here's a complete example showing all required tags in context:
   </button>
 </form>
 ```
-
-## What Gets Recorded
-
-When a form with these tags is submitted, Formcertify records:
-
-- All tagged form field values
-- The exact consent language shown
-- The entity receiving consent
-- Timestamp of submission
-- Browser and device information
-- User interaction metrics
-- Session replay (if enabled)
-
-This data is used to generate a legally-binding certificate of consent that can be accessed through your Formcertify dashboard. 
