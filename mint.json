@@ -56,7 +56,7 @@
       "group": "Implement",
       "pages": [
         "html_data_tags",
-        "retain_certificates",
+        "vault_certificates",
         "validate_certificates"
       ]
     },
