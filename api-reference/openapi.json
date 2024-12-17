@@ -21,7 +21,7 @@
   "paths": {
     "/{certificate_id}/vault": {
       "post": {
-        "description": "Creates a vault certificate for storing consent",
+        "description": "Vault a certificate to retain it for 5 years",
         "parameters": [
           {
             "name": "certificate_id",
@@ -70,7 +70,7 @@
     },
     "/{certificate_id}/validate": {
       "post": {
-        "description": "Validates company consent for a certificate",
+        "description": "Validate your company received one-to-one consent",
         "parameters": [
           {
             "name": "certificate_id",

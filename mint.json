@@ -38,9 +38,9 @@
       "url": "https://mintlify.com/docs"
     },
     {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "name": "API Reference",
+      "icon": "code",
+      "url": "api-reference"
     }
   ],
   "navigation": [
