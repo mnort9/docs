@@ -45,7 +45,7 @@
           "required": true
         },
         "responses": {
-          "201": {
+          "200": {
             "description": "Vault certificate created successfully",
             "content": {
               "application/json": {
@@ -122,37 +122,23 @@
     "schemas": {
       "VaultRequest": {
         "type": "object",
-        "required": ["identifier"],
         "properties": {
           "identifier": {
             "type": "string",
             "description": "Identifier used to associate a certificate to a contact/lead in your system"
-          },
-          "provider": {
-            "type": "string",
-            "description": "Internal reference of what company provided the lead"
           }
         }
       },
       "VaultResponse": {
         "type": "object",
         "properties": {
-          "id": {
+          "message": {
             "type": "string",
-            "description": "Unique identifier for the vault certificate"
+            "description": "Message from the API"
           },
-          "created_at": {
+          "expires_at": {
             "type": "string",
-            "format": "date-time",
-            "description": "Timestamp when the vault certificate was created"
-          },
-          "identifier": {
-            "type": "string",
-            "description": "The identifier provided in the request"
-          },
-          "provider": {
-            "type": "string",
-            "description": "The provider specified in the request"
+            "description": "Timestamp when the vault certificate will expire"
           }
         }
       },
@@ -169,18 +155,13 @@
       "ValidateResponse": {
         "type": "object",
         "properties": {
-          "valid": {
+          "consent_received": {
             "type": "boolean",
-            "description": "Whether the company consent is valid"
+            "description": "Whether the company received consent"
           },
           "company_name": {
             "type": "string",
             "description": "The validated company name"
-          },
-          "validated_at": {
-            "type": "string",
-            "format": "date-time",
-            "description": "Timestamp of validation"
           }
         }
       },
