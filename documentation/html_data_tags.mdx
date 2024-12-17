@@ -5,30 +5,28 @@ description: 'Complete reference for Formcertify HTML data attributes'
 
 ## Overview
 
-Formcertify uses HTML data attributes to identify and process form elements. These attributes help us track user consent and generate legally-binding certificates.
+Formcertify uses HTML data attributes to capture important consent information like who is the consenter and the disclosure they are consenting to.
 
-## Required Tags
+Form elements must use the `data-fc-type` attribute with one of the following values:
 
-All form elements must use the `data-fc-type` attribute with one of the following values:
-
-<ParamField path="consenter-name" type="string">
+<ParamField path="name" type="string">
   Input field for collecting the user's full name
   ```html
-  <input type="text" data-fc-type="consenter-name" />
+  <input type="text" data-fc-type="name" />
   ```
 </ParamField>
 
-<ParamField path="consenter-phone" type="string">
+<ParamField path="phone" type="string">
   Input field for collecting the user's phone number
   ```html
-  <input type="tel" data-fc-type="consenter-phone" />
+  <input type="tel" data-fc-type="phone" />
   ```
 </ParamField>
 
-<ParamField path="consenter-email" type="string">
+<ParamField path="email" type="string">
   Input field for collecting the user's email address
   ```html
-  <input type="email" data-fc-type="consenter-email" />
+  <input type="email" data-fc-type="email" />
   ```
 </ParamField>
 
@@ -41,12 +39,12 @@ All form elements must use the `data-fc-type` attribute with one of the followin
   ```
 </ParamField>
 
-<ParamField path="consent-entity-name" type="string">
+<ParamField path="company-name" type="string">
   Element containing the name of the entity receiving consent
   ```html
-  <div data-fc-type="consent-entity-name">
-    Acme Corporation
-  </div>
+  <span data-fc-type="company-name">
+    ABC Mortgage
+  </span>
   ```
 </ParamField>
 
@@ -56,8 +54,6 @@ All form elements must use the `data-fc-type` attribute with one of the followin
   <button type="submit" data-fc-type="submit">Submit</button>
   ```
 </ParamField>
-
-## Optional Tags
 
 <ParamField path="form" type="string">
   Can be added to the form element itself for explicit form identification
@@ -79,7 +75,7 @@ Here's a complete example showing all required tags in context:
     <input 
       type="text" 
       id="name"
-      data-fc-type="consenter-name" 
+      data-fc-type="name" 
       required 
     />
   </div>
@@ -89,7 +85,7 @@ Here's a complete example showing all required tags in context:
     <input 
       type="tel" 
       id="phone"
-      data-fc-type="consenter-phone" 
+      data-fc-type="phone" 
       required 
     />
   </div>
@@ -99,19 +95,19 @@ Here's a complete example showing all required tags in context:
     <input 
       type="email" 
       id="email"
-      data-fc-type="consenter-email" 
+      data-fc-type="email" 
       required 
     />
   </div>
 
   <div class="consent-box">
-    <div data-fc-type="consent-entity-name">
+    <div data-fc-type="company-name">
       Acme Corporation
     </div>
     
     <div data-fc-type="consent-disclosure">
       By submitting this form, I agree to receive marketing communications from 
-      Acme Corporation. I understand that I can unsubscribe at any time. Message 
+      <span data-fc-type="company-name">ABC Mortgage</span>. I understand that I can unsubscribe at any time. Message 
       and data rates may apply.
     </div>
   </div>
