@@ -2,3 +2,19 @@
 title: 'Vault'
 openapi: 'POST /{certificate_id}/vault'
 ---
+
+Certificates can be vaulted in two ways:
+
+## 1. Auto-Vault (Recommended)
+
+Vault certificates automatically when a form sumbission is received. This ensures every consent certificate is retained successfully. 
+
+To enable Auto-Vault:
+1. Navigate to your account settings
+2. Enable the "Auto-Vault" option
+
+## 2. Manually Vault via API
+
+In some cases you may only want to Vault specific certificates. 
+
+Use your certificate URL to make a request to the **Vault API**. See [Vault API Reference](api-reference/certificate/vault).
