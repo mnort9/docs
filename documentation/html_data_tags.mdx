@@ -41,6 +41,17 @@ Form elements must use the `data-fc-type` attribute with one of the following va
   ```
 </ParamField>
 
+<ParamField path="consent-opt-in" type="string">
+  Checkbox input associated with the consent disclosure for explicit opt-in
+  ```html
+  <input 
+    type="checkbox" 
+    data-fc-type="consent-opt-in"
+    required
+  />
+  ```
+</ParamField>
+
 <ParamField path="company-name" type="string">
   Element containing the name of the entity receiving consent
   ```html
@@ -112,6 +123,12 @@ Here's a complete example showing all required tags in context:
       <span data-fc-type="company-name">ABC Mortgage</span>. I understand that I can unsubscribe at any time. Message 
       and data rates may apply.
     </div>
+
+    <input 
+      type="checkbox"
+      data-fc-type="consent-opt-in"
+      required
+    />
   </div>
 
   <button type="submit" data-fc-type="submit">
