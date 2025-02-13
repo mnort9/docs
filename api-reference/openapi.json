@@ -117,14 +117,14 @@
         }
       }
     },
-    "/optoutai": {
+    "/optoutai/messages": {
       "post": {
         "servers": [
           {
             "url": "https://api.formcertify.com"
           }
         ],
-        "description": "Revoke AI consent",
+        "description": "Evaluate opt-out request",
         "requestBody": {
           "description": "Opt-out message",
           "content": {
@@ -237,9 +237,9 @@
       "OptOutResponse": {
         "type": "object",
         "properties": {
-          "consent_revoked": {
+          "optout_detected": {
             "type": "boolean",
-            "description": "Whether the consent was successfully revoked"
+            "description": "Whether an opt-out was detected"
           }
         }
       }
