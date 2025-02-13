@@ -116,6 +116,49 @@
           }
         }
       }
+    },
+    "/optoutai": {
+      "post": {
+        "servers": [
+          {
+            "url": "https://api.formcertify.com"
+          }
+        ],
+        "description": "Revoke AI consent",
+        "requestBody": {
+          "description": "Opt-out message",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OptOutRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Opt-out processed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OptOutResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -178,6 +221,25 @@
           },
           "message": {
             "type": "string"
+          }
+        }
+      },
+      "OptOutRequest": {
+        "type": "object",
+        "required": ["message"],
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Opt-out message"
+          }
+        }
+      },
+      "OptOutResponse": {
+        "type": "object",
+        "properties": {
+          "consent_revoked": {
+            "type": "boolean",
+            "description": "Whether the consent was successfully revoked"
           }
         }
       }

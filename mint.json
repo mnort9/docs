@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Formcertify",
   "logo": {
     "dark": "/logo/logo.png",
     "light": "/logo/logo.png"
@@ -78,6 +78,12 @@
       "pages": [
         "api-reference/certificate/vault",
         "api-reference/certificate/validate"
+      ]
+    },
+    {
+      "group": "OptOut AI",
+      "pages": [
+        "api-reference/optoutai/optoutai"
       ]
     }
   ],
