@@ -231,6 +231,10 @@
           "message": {
             "type": "string",
             "description": "Opt-out message"
+          },
+          "identifier": {
+            "type": "string",
+            "description": "System identifier for reference (e.g. twilio_sid, message_id)"
           }
         }
       },
