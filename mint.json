@@ -83,7 +83,7 @@
     {
       "group": "OptOut AI",
       "pages": [
-        "api-reference/optoutai/optoutai"
+        "api-reference/optoutai/messages"
       ]
     }
   ],
