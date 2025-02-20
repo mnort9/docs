@@ -19,7 +19,7 @@
     }
   ],
   "paths": {
-    "/{certificate_id}/vault": {
+    "/{certificate_id}/v1/vault": {
       "post": {
         "description": "Vault a certificate to retain it for 5 years",
         "parameters": [
@@ -68,7 +68,7 @@
         }
       }
     },
-    "/{certificate_id}/validate": {
+    "/{certificate_id}/v1/validate": {
       "post": {
         "description": "Validate your company received one-to-one consent",
         "parameters": [
@@ -117,7 +117,7 @@
         }
       }
     },
-    "/optoutai/messages": {
+    "/v1/optoutai/messages": {
       "post": {
         "servers": [
           {
